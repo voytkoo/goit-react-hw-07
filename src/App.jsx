@@ -5,12 +5,12 @@ import "./App.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContactsThunk } from "./redux/contactsOps";
-import { getError, getIsLoading } from "redux/selectors";
+import { selectError, selectIsLoading } from "./redux/selectors";
 
-export const App = () => {
+const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContactsThunk());
@@ -33,3 +33,4 @@ export const App = () => {
     </>
   );
 };
+export default App;
